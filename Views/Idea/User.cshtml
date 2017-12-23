@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h3>Name: @ViewBag.ThisUser.fname @ViewBag.ThisUser.lname</h3>
+<p>Username: @ViewBag.ThisUser.alias </p>
+<p>Email:@ViewBag.ThisUser.email </p>
+<hr>
+<p>Total Number of Posts: @ViewBag.ThisUser.ideas.Count</p>
+<p>Total Number of Likes: @ViewBag.ThisUser.medium.Count</p>

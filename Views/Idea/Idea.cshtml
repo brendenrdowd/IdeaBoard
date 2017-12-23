@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Idea";
+}
+
+<h4><a href="/users/@ViewBag.User.UserId">@ViewBag.User.alias</a>:</h4>
+<p>@ViewBag.ThisIdea.itext</p>
+
+<h3>People who liked this post:</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+       @if(ViewBag.Users.Count>0)
+       {
+           foreach(var u in ViewBag.Users)
+           {
+
+               <tr>
+                   <td>@u.alias</td>
+                   <td>@user.fName @user.lname</td>
+               </tr>
+           }
+       }
+    </tbody>
+</table>

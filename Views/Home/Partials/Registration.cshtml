@@ -1,0 +1,25 @@
+@model garterExam.Models.Registration
+
+<div class ="reg">
+    <form asp-action="Register" asp-controller="Home" method="POST">
+        <span asp-validation-for="fname"></span>
+        <label asp-for="fname"></label>
+        <input  asp-for="fname"><br>
+        <span asp-validation-for="lname"></span>
+        <label asp-for="lname"></label>
+        <input asp-for="lname"><br>
+        <span asp-validation-for="alias"></span>
+        <label asp-for="alias"></label>
+        <input asp-for="alias"><br>
+        <span asp-validation-for="email"></span>
+        <label asp-for="email"></label>
+        <input  asp-for="email"><br>
+        <span asp-validation-for="password"></span>
+        <label asp-for="password"></label>
+        <input  asp-for="password"><br>
+        <span asp-validation-for="confirm"></span>
+        <label asp-for="confirm"></label>
+        <input  asp-for="confirm"><br>
+        <input type="submit" value="Register">
+    </form>
+</div>

@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Hi, @ViewBag.CurrUser.alias!</h1>
+
+<form action="addIdea" method="post">
+    <span>@TempData["ideaerror"]</span>
+    <textarea name="itext" id="commentbox"></textarea>
+    <input type="submit" value="post">
+</form>
+<div class="post">
+@foreach(var i in ViewBag.Ideas){
+    int counter = 0;
+    foreach(var u in ViewBag.Users){
+        if(u.id == i.userId){
+            if(counter < 1){
+                <h5><a href="/users/@i.id">@u.alias:</a></h5>
+                counter++;
+            }
+        }
+    }
+    <p class="content">@i.itext</p>
+
+    @if(@ViewBag.CurrUser.id == i.userId){
+        <a href="/delete/i.ideaId">Delete</a>
+    }
+    bool HasLiked = false;
+    foreach(var l in i.likes){
+        if(l.userId == @ViewBag.Users.id){
+            HasLiked = true;
+        }
+    }
+    if(HasLiked == false){
+        <a href="like/@i.id">Like</a>
+    }
+    <p><a href="/i.ideaId">@i.likes.Count</a>people like this</p>
+}
+</div>
